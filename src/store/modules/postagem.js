@@ -3,12 +3,6 @@ import api from './api'
 
 const options = {
   headers: {
-    // 'X-Custom-Header': 'value',
-    // 'Content-Type': 'application/json',
-    // 'Authorization': 'JWT fefege...',
-    // "Access-Control-Allow-Origin": "*",
-    // "Access-Control-Allow-Headers": "*"
-    //gitdddddddddssssss
     'Access-Control-Allow-Origin': '*',
     'Connection': 'keep-alive',
     'Content-Length' : '254',
