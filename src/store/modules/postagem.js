@@ -8,7 +8,7 @@ const options = {
     // 'Authorization': 'JWT fefege...',
     // "Access-Control-Allow-Origin": "*",
     // "Access-Control-Allow-Headers": "*"
-    //gitddddddddd
+    //gitdddddddddssssss
     'Access-Control-Allow-Origin': '*',
     'Connection': 'keep-alive',
     'Content-Length' : '254',
