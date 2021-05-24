@@ -39,7 +39,7 @@ export default {
 .bkg{
   background-color: white;
   padding: 15px;
-  min-height: 750px;
+  min-height: calc(100vh - 184px);
 }
 
 .block{

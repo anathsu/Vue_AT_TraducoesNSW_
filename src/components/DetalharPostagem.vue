@@ -19,11 +19,6 @@
         </div>
 
         <div>
-          <span><b>ID: </b></span>
-          <span>{{ postagem._id }}</span>
-        </div>
-
-        <div>
           <span><b>Contato: </b></span>
           <span><a :href="postagem.creditos" target="_blank">Página do Desenvolvedor</a></span>
         </div>
@@ -76,14 +71,13 @@
             id="input-group-1"
             label="Contato da Equipe"
             label-for="input-3"
-            description="Campo obrigatório"
           >
             <b-form-input
               id="input-3"
               v-model="postagem.creditos"
               type="text"
               required
-              placeholder="Entre com o e-mail"
+              placeholder="site/blog da equipe"
             ></b-form-input>
           </b-form-group>
 
@@ -97,7 +91,6 @@
               id="input-5"
               v-model="postagem.download"
               type="text"
-              placeholder="Link para Download"
             ></b-form-input>
           </b-form-group>
 
@@ -159,13 +152,6 @@ export default {
     ...mapActions(["updatePostagem"]),
     onSubmit(evt) {
       evt.preventDefault();
-      // alert(`Postagem Editada com sucesso! \n
-      // Titulo: ${this.postagem.title}\n
-      // URL da Imagem: ${this.postagem.img}\n
-      // Creditos: ${this.postagem.creditos}\n
-      // URL do Download: ${this.postagem.download}\n
-      // Equipe: ${this.postagem.equipe}\n`
-      // );
     },
     created() {
       this.equipes.push(this.postagem.equipe);
@@ -184,7 +170,7 @@ export default {
 }
 
 .imagem{
-  width: 750px;
+  width: 600px;
   padding-left: 10px;
   padding-top: 30px;
 }

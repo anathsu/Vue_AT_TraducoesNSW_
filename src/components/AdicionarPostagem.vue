@@ -70,8 +70,8 @@ export default {
   methods: {
     ...mapActions(["addPostagem"]),
     createPostagem(){
-      let user = {
-        "id": (this.allPostagens.length + 1),
+      let newPostagem = {
+        // "id": (this.allPostagens.length + 1),
         "title": this.title,
         "img": this.img,
         "equipe": this.equipe,
@@ -80,7 +80,7 @@ export default {
         "data": `${this.data.getDate()}/${this.data.getMonth()+1}/${this.data.getFullYear()}`
       }
 
-      this.addPostagem(user)
+      this.addPostagem(newPostagem)
       alert('Postagem adicionada com sucesso!')
     }
   },

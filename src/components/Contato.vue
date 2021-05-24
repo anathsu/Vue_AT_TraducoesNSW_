@@ -13,7 +13,7 @@
         <b-form-input class="form-control tc" type="text" name="assunto" id="assunto" placeholder="Assunto" required></b-form-input>
               
         <b-form-textarea class="form-control tc"  name="mensagem" id="mensagem"
-        placeholder="Deixe uma dúvida, crítica ou sugestão de tradução."
+        placeholder="Deixe uma dúvida, crítica ou sugestão de tradução. Para sugestão de tradução envie: Nome do Jogo, Nome da Equipe, Url da imagem do jogo, Site da equipe e Url para Download."
         cols="30" rows="4" required></b-form-textarea>
 
         <input class="btn tc btn-danger" type="reset" value="Apagar">
@@ -36,7 +36,7 @@ export default {
 .bkg{
   background-color: white;
   padding: 15px;
-  min-height: 750px;
+  min-height: calc(100vh - 184px);
 }
 
 .formulario{

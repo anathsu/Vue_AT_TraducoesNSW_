@@ -7,7 +7,6 @@ const options = {
     'Connection': 'keep-alive',
     'Content-Length' : '254',
     'Content-Type':  'application/json; charset=utf-8'
-    //teste
   }
 };
 
@@ -40,37 +39,23 @@ const actions = {
   addPostagem({ commit }, postagem) {
     
     let params = {
-      title: "teste",
-      img: "teste",
-      equipe: "teste",
-      creditos: "teste",
-      download: "teste"
+      title: postagem.title,
+      img: postagem.img,
+      equipe: postagem.equipe,
+      creditos: postagem.creditos,
+      download: postagem.download
     }
-
-    // api.post("postagem", {
-    //     body: {
-    //       "title": "teste",
-    //       "img": "teste",
-    //       "equipe": "teste",
-    //       "creditos": "teste",
-    //       "download": "teste"
-    //     }
-    //   })
-    //   .then(response => {console.log(response.data)})
-    //   .catch(e => {
-    //     alert("Ops! Ocorreu um erro: " + e);
-    //   })
 
     api.post('/postagem', params, options)
       .then((response) => {
-        console.log(response)
-        alert(response)
+        console.log(response.status)
+        commit('addPostagem', postagem)
       })
       .catch((err) => {
         alert("Ops! Ocorreu um erro: " + err);
      });
     // console.log(res.data);
-    commit('addPostagem', postagem)
+    
     // const response = await api.post("addPostagem", postagem);
   },
 
@@ -82,7 +67,7 @@ const actions = {
   },
 
   updatePostagem({ commit }, updPostagem) {
-    alert(updPostagem._id)
+    alert("Postagem editada com sucesso!")
     api.patch(`postagem/${updPostagem._id}`, {
       title: updPostagem.title,
       img: updPostagem.img,
@@ -90,7 +75,7 @@ const actions = {
       creditos: updPostagem.creditos,
       download: updPostagem.download,
       data: updPostagem.data
-    });
+    }, options);
     commit("updatePostagem", updPostagem);
   },
 
