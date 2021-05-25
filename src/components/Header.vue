@@ -14,7 +14,7 @@
           <b-icon icon="person-circle"></b-icon> Login
         </b-button> -->
 
-        <b-nav-item v-if="logado == null"><router-link to="/login">Acesso restrito</router-link></b-nav-item>
+        <b-nav-item v-if="logado == null"><router-link to="/login"><b-icon icon="person-fill"></b-icon> Acesso restrito</router-link></b-nav-item>
         <b-nav-item @click="sair()" v-else>{{ logado.email }} <b-icon icon="power" aria-hidden="true"></b-icon> sair</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
@@ -36,7 +36,11 @@ export default {
   },
   methods: {
     sair(){
-      alert("Saiu")
+      this.$firebase.auth().signOut().then(() => {
+        this.logado = null
+      }).catch((error) => {
+        console.log(error)
+      });
     }
   },
 }

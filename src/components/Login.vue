@@ -40,11 +40,10 @@ export default {
         .then((userCredential) => {
           var user = userCredential.user;
           window.uid = user.uid
-          // this.$router.push({ name: 'home'})
-          alert(user.uid)
+          this.$router.push({ name: 'home'})
         })
         .catch((error) => {
-          alert("Erro: " + error.message);
+          alert("Erro ao tentar logar-se: " + error.code);
         });
       
     },
@@ -71,7 +70,7 @@ export default {
 #login{
   width: 300px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 100px;
 }
 
 .tc{

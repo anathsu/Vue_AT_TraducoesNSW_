@@ -97,6 +97,8 @@ export default {
     this.$firebase.auth().onAuthStateChanged( user => {
       this.logado = user ? user.uid : null
     })
+
+    // this.user = this.$firebase.auth().currentUser;
   },
   data() {
     return {
@@ -104,6 +106,7 @@ export default {
       search: "",
       result: null,
       logado: null,
+      // user: null,
     };
   },
 };
