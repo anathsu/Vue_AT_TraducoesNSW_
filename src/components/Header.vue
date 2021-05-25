@@ -14,7 +14,8 @@
           <b-icon icon="person-circle"></b-icon> Login
         </b-button> -->
 
-        <b-nav-item><router-link to="/login">Acesso restrito</router-link></b-nav-item>
+        <b-nav-item v-if="logado == null"><router-link to="/login">Acesso restrito</router-link></b-nav-item>
+        <b-nav-item @click="sair()" v-else>{{ logado.email }} <b-icon icon="power" aria-hidden="true"></b-icon> sair</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
     </b-navbar>
@@ -23,6 +24,21 @@
 <script>
 export default {
   name: 'Header',
+  data(){
+    return {
+      logado: null,
+    }
+  },
+  mounted(){
+    this.$firebase.auth().onAuthStateChanged( user => {
+      this.logado = user ? user : null
+    })
+  },
+  methods: {
+    sair(){
+      alert("Saiu")
+    }
+  },
 }
 </script>
 
@@ -35,7 +51,7 @@ a{
 }
 
 a:hover{
-    color: rgb(37, 120, 214)
+    color: rgb(27, 203, 235);
 }
 
 a:link {

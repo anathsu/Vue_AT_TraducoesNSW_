@@ -36,13 +36,16 @@ export default {
     async autentica() {
       const { email, password} = this
 
-      try {
-        const res = this.$firebase.auth().signInWithEmailAndPassword(email, password)
-
-        alert(res)
-      } catch (error) {
-        alert("Erro: " + error)
-      }
+      this.$firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          var user = userCredential.user;
+          window.uid = user.uid
+          // this.$router.push({ name: 'home'})
+          alert(user.uid)
+        })
+        .catch((error) => {
+          alert("Erro: " + error.message);
+        });
       
     },
   },
@@ -53,7 +56,7 @@ export default {
 .bkg{
   background-color: white;
   padding: 15px;
-  min-height: 750px;
+  min-height: calc(100vh - 184px);
 }
 
 .titulo{

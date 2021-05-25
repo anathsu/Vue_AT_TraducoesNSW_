@@ -51,7 +51,7 @@
       </b-col>
     </b-row>
 
-    <div class="edicao">
+    <div class="edicao" v-if="this.logado != null">
       <b-row><h3>Edição</h3></b-row>
       <b-row>
         <b-form @submit="onSubmit" class=".formulario">
@@ -146,6 +146,7 @@ export default {
         "Heroes Of Time Brasil",
       ],
       data: new Date(),
+      logado: null,
     };
   },
   methods: {
@@ -156,6 +157,12 @@ export default {
     created() {
       this.equipes.push(this.postagem.equipe);
     },
+    
+  },
+  mounted(){
+    this.$firebase.auth().onAuthStateChanged( user => {
+      this.logado = user ? user.uid : null
+    })
   },
 };
 </script>
@@ -167,6 +174,7 @@ export default {
   padding: 10px;
   background-color: white;
   border-radius:  15px;
+  min-height: calc(100vh - 184px);
 }
 
 .imagem{

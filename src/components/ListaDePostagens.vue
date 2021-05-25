@@ -35,6 +35,7 @@
 
           <b-card-text><strong>Equipe: </strong>{{ postagem.equipe }}</b-card-text>
         
+          
           <router-link
             tag="p"
             :to="{ name: 'postagemDetail', params: { id: postagem._id, postagem: postagem } }"
@@ -48,20 +49,22 @@
 
           </router-link>
 
-          
-          <b-button
+          <div >
+            <b-button 
             class="btn"
             @click="deletePostagem(postagem._id)"
             block
             variant="danger"
             >Excluir
-          </b-button>
+            </b-button>
+          </div>
+          
 
         </b-card>
       </b-card-group>
     </b-row>
 
-    <b-row class="addPostagem">
+    <b-row class="addPostagem" v-if="this.logado != null">
       <AdicionarPostagem />
     </b-row>
 
@@ -69,13 +72,14 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions} from "vuex";
 import AdicionarPostagem from "./AdicionarPostagem";
 
 export default {
   name: "ListaDePostagens",
   computed: {
     ...mapGetters(["allPostagens"]),
+    // ... mapState(["logado"])
   },
   methods: {
     ...mapActions(["getPostagens", "deletePostagem"]),
@@ -89,11 +93,17 @@ export default {
   created() {
     this.getPostagens();
   },
+  mounted(){
+    this.$firebase.auth().onAuthStateChanged( user => {
+      this.logado = user ? user.uid : null
+    })
+  },
   data() {
     return {
       titulo: "Títulos encontrados:",
       search: "",
       result: null,
+      logado: null,
     };
   },
 };
@@ -103,7 +113,7 @@ export default {
 .bkg{
   background-color: white;
   padding: 15px;
-  min-height: 900px;
+  min-height: calc(100vh - 184px);
 }
 
 .card {

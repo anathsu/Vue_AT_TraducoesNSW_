@@ -1,6 +1,6 @@
 <template>
     <b-card-footer footer-bg-variant="dark" class="footer navbar-fixed-bottom">
-        Copyright 2020, Willian Nascimento®
+        Copyright 2020~2021, Willian Nascimento®
     </b-card-footer>
 </template>
 

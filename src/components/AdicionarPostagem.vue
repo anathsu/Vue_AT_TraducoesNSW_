@@ -82,6 +82,7 @@ export default {
 
       this.addPostagem(newPostagem)
       alert('Postagem adicionada com sucesso!')
+      // this.$router.push({ name: 'home'})
     }
   },
 };

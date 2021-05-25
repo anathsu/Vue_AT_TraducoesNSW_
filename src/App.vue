@@ -21,6 +21,8 @@ import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
+// import { mapActions } from "vuex";
+
 
 export default {
   name: 'App',
@@ -33,8 +35,11 @@ export default {
       titulo: "Nintendo Switch Traduções PT-BR",
     };
   },
+  methods: {
+    // ...mapActions(["verificaLogado"]),
+  },
   mounted() {
-    // console.log (this.$firebase)
+    // this.verificaLogado()
   }
 }
 </script>

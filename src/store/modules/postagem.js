@@ -4,19 +4,21 @@ import api from './api'
 const options = {
   headers: {
     'Access-Control-Allow-Origin': '*',
-    'Connection': 'keep-alive',
-    'Content-Length' : '254',
+    // 'Connection': 'keep-alive',
+    // 'Content-Length' : '254',
     'Content-Type':  'application/json; charset=utf-8'
   }
 };
 
 const state = {
-  postagens: []
+  postagens: [],
+  logado: null
 };
 
 //Acesso ao state
 const getters = {
   allPostagens: state => state.postagens,
+  // userLogado: state => state.logado
 };
 
 const actions = {
@@ -79,6 +81,14 @@ const actions = {
     commit("updatePostagem", updPostagem);
   },
 
+  verificaLogado({ commit }){
+    this.$firebase.auth().onAuthStateChanged( user => {
+      let usuario = user ? user.uid : null
+      commit("verificaLogado", usuario)
+    })
+    
+  },
+
 }
 
 //Insiro no state as respostas da API
@@ -93,11 +103,13 @@ const mutations = {
   deletePostagem: (state, id) => (state.postagens = state.postagens.filter(p => p._id !== id)),
 
   updatePostagem: (state, data) => {
-    const index = state.postagens.findIndex(t => t.id === data.id)
+    const index = state.postagens.findIndex(t => t.id === data._id)
     if (index !== -1) {
       state.todos.splice(index, 1, data);
     }
-  }
+  },
+
+  verificaLogado: (state, usuario) => (state.logado = usuario),
 }
 
 export default {
