@@ -36,11 +36,13 @@ export default {
   },
   methods: {
     sair(){
-      this.$firebase.auth().signOut().then(() => {
-        this.logado = null
-      }).catch((error) => {
-        console.log(error)
-      });
+      if(confirm('Tem certeza que deseja sair?')){
+        this.$firebase.auth().signOut().then(() => {
+          this.logado = null
+        }).catch((error) => {
+          console.log(error)
+        });
+      }
     }
   },
 }

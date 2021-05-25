@@ -12,7 +12,7 @@ const options = {
 
 const state = {
   postagens: [],
-  logado: null
+  // logado: null
 };
 
 //Acesso ao state
@@ -81,13 +81,13 @@ const actions = {
     commit("updatePostagem", updPostagem);
   },
 
-  verificaLogado({ commit }){
-    this.$firebase.auth().onAuthStateChanged( user => {
-      let usuario = user ? user.uid : null
-      commit("verificaLogado", usuario)
-    })
+  // verificaLogado({ commit }){
+  //   this.$firebase.auth().onAuthStateChanged( user => {
+  //     let usuario = user ? user.uid : null
+  //     commit("verificaLogado", usuario)
+  //   })
     
-  },
+  // },
 
 }
 
@@ -109,7 +109,7 @@ const mutations = {
     }
   },
 
-  verificaLogado: (state, usuario) => (state.logado = usuario),
+  // verificaLogado: (state, usuario) => (state.logado = usuario),
 }
 
 export default {
