@@ -50,7 +50,8 @@
           </router-link>
 
           <div >
-            <b-button 
+            <b-button
+            v-if="logado"
             class="btn"
             @click="deletePostagem(postagem._id)"
             block
@@ -79,7 +80,6 @@ export default {
   name: "ListaDePostagens",
   computed: {
     ...mapGetters(["allPostagens"]),
-    // ... mapState(["logado"])
   },
   methods: {
     ...mapActions(["getPostagens", "deletePostagem"]),
@@ -92,13 +92,15 @@ export default {
   },
   created() {
     this.getPostagens();
+
+    this.$firebase.auth().onAuthStateChanged( user => {
+      this.logado = user ? user.uid : null
+    })
   },
   mounted(){
     this.$firebase.auth().onAuthStateChanged( user => {
       this.logado = user ? user.uid : null
     })
-
-    // this.user = this.$firebase.auth().currentUser;
   },
   data() {
     return {
@@ -106,7 +108,6 @@ export default {
       search: "",
       result: null,
       logado: null,
-      // user: null,
     };
   },
 };

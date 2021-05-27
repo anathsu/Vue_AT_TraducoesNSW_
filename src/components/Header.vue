@@ -9,11 +9,6 @@
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
-
-        <!-- <b-button router-link to="/login">
-          <b-icon icon="person-circle"></b-icon> Login
-        </b-button> -->
-
         <b-nav-item v-if="logado == null"><router-link to="/login"><b-icon icon="person-fill"></b-icon> Acesso restrito</router-link></b-nav-item>
         <b-nav-item @click="sair()" v-else>{{ logado.email }} <b-icon icon="power" aria-hidden="true"></b-icon> sair</b-nav-item>
       </b-navbar-nav>
@@ -48,7 +43,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 a{
     color: white;
@@ -57,7 +51,7 @@ a{
 }
 
 a:hover{
-    color: rgb(27, 203, 235);
+    color: #5bc0de;
 }
 
 a:link {

@@ -14,8 +14,12 @@
           <div class="form-group">
             <input class="form-control tc" type="password" v-model="password" placeholder="senha" required/>
           </div>
-      
-          <button class="btn btn-primary w-100" >Entrar</button>
+
+          <button class="btn btn-primary w-100">
+            Entrar <i class=" fa fa-sign-in-alt"></i>
+          </button>
+        
+          
           </div>
       </form>
     </div>
@@ -45,9 +49,9 @@ export default {
         .catch((error) => {
           alert("Erro ao tentar logar-se: " + error.code);
         });
-      
     },
   },
+
 }
 </script>
 
