@@ -17,7 +17,7 @@
       <h4>{{ titulo }}</h4>
 
       <b-row class="span" v-if="allPostagens < 1">
-        <span>Não há nenhuma tradução para mostrar no momento...</span>
+        <span>Buscando postagens...</span>
       </b-row>
       
       

@@ -4,8 +4,6 @@ import api from './api'
 const options = {
   headers: {
     'Access-Control-Allow-Origin': '*',
-    // 'Connection': 'keep-alive',
-    // 'Content-Length' : '254',
     'Content-Type':  'application/json; charset=utf-8'
   }
 };
@@ -29,13 +27,6 @@ const actions = {
       .catch((err) => {
         console.error("Ops! Ocorreu um erro: " + err);
      });
-    // axios.get(
-    //   // "http://my-json-server.typicode.com/anathsu/vue-json-api/dados"
-    //   "https://rest-api-nswt.herokuapp.com/postagem/"
-    // ).then((response) => {
-    //   //Envio para getPostagens da mutations a resposta da API
-    //   commit('getPostagens', response.data);
-    // });
   },
 
   addPostagem({ commit }, postagem) {
@@ -56,9 +47,6 @@ const actions = {
       .catch((err) => {
         alert("Ops! Ocorreu um erro: " + err);
      });
-    // console.log(res.data);
-    
-    // const response = await api.post("addPostagem", postagem);
   },
 
   deletePostagem({ commit }, id) {
@@ -81,14 +69,6 @@ const actions = {
     commit("updatePostagem", updPostagem);
   },
 
-  // verificaLogado({ commit }){
-  //   this.$firebase.auth().onAuthStateChanged( user => {
-  //     let usuario = user ? user.uid : null
-  //     commit("verificaLogado", usuario)
-  //   })
-    
-  // },
-
 }
 
 //Insiro no state as respostas da API
@@ -108,8 +88,6 @@ const mutations = {
       state.todos.splice(index, 1, data);
     }
   },
-
-  // verificaLogado: (state, usuario) => (state.logado = usuario),
 }
 
 export default {

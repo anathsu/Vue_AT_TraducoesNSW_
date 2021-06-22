@@ -1,6 +1,6 @@
 <template>
     <b-card-footer footer-bg-variant="dark" class="footer navbar-fixed-bottom">
-        Copyright 2020~2021, Willian Nascimento® 
+        Copr. 2021, Willian Silva® 
         <a href="https://www.linkedin.com/in/willian-n-silva/" title="Perfil do Linkedin" target="_blank" class="icone fab fa-linkedin"> </a>
         <a href="https://github.com/anathsu" title="Perfil do Github" target="_blank" class="icone fab fa-github-square"> </a>
         <a href="https://twitter.com/anathsu_" title="Perfil do Twitter" target="_blank" class="icone fab fa-twitter-square"> </a>

@@ -12,7 +12,7 @@
           </div>
 
           <div class="form-group">
-            <input class="form-control tc" type="password" v-model="password" placeholder="senha" required/>
+            <input class="form-control tc" type="password" v-model="password" placeholder="Senha" required/>
           </div>
 
           <button class="btn btn-primary w-100">
@@ -33,6 +33,7 @@ export default {
     return{
       email: "",
       password: "",
+      user: null
     };
 
   },
@@ -43,7 +44,7 @@ export default {
       this.$firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
           var user = userCredential.user;
-          window.uid = user.uid
+          window.uid = user.uid //Provando que está logado
           this.$router.push({ name: 'home'})
         })
         .catch((error) => {
@@ -51,7 +52,6 @@ export default {
         });
     },
   },
-
 }
 </script>
 
